@@ -32,12 +32,12 @@ namespace Excel
 				//попълване на таблицата
 
 				int i=1;
-				addRow(new DataRow("Първо име","Фамилия","Години"),i++);
+				addRow(new DataRow("Първо име","Фамилия","Години"),i++,true,254);i++;
 				foreach (DataRow row in _data.table)
 				{
-					addRow(row,i++);
+					addRow(row,i++,false,-1);
 				}
-
+				i++;addRow(new DataRow("Брой редове","",_data.table.Count.ToString()),i++,true,-1);i++;
 				workbook.SaveCopyAs(getPath());
 				excel.DisplayAlerts=false;
 				excel.Quit();
@@ -57,10 +57,17 @@ namespace Excel
 			return false;
 		}
 
-		public void addRow(DataRow _row,int _indexRow)
+		public void addRow(DataRow _row,int _indexRow,bool isBold, int color)
 		{
 			try {
 				InteropExcel.Range range;
+				//форматиране
+				range=excel.Range["A"+_indexRow.ToString(),"C"+_indexRow.ToString()];
+				if (color > 0) range.Interior.Color=color;
+				range.Font.Bold=isBold;
+
+				//Попълване на данните
+				
 				range=excel.Range["A"+_indexRow.ToString(),"A"+_indexRow.ToString()];
 				range.Value2=_row.firstName;
 
