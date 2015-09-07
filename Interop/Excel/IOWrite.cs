@@ -9,6 +9,7 @@ namespace Excel
 	{
 		private DataStruct _data;
 		private InteropExcel.Application excel;
+
 		public IOWrite (DataStruct data)
 		{
 			_data = data;
