@@ -15,7 +15,22 @@ namespace Excel
 		public bool exportTable()
 		{
 			try{
+				excel = new InteropExcel.ApplicationClass();
 
+				if (excel==null) return false;
+
+				excel.Visible=false;
+
+				InteropExcel.Workbook workbook = excel.Workbooks.Add();
+				if (workbook==null) return false;
+
+				InteropExcel.Worksheet sheet = (InteropExcel.Worksheet) workbook.Worksheets[1];
+				sheet.Name="Таблица 1";
+				//попълване на таблицата
+
+				workbook.SaveCopyAs(getPath());
+				excel.DisplayAlerts=false;
+				excel.Quit();
 				return true;
 			}catch{
 			}
@@ -25,8 +40,7 @@ namespace Excel
 		public void addRow(DataRow _row)
 		{
 			try {
-
-
+				
 			} catch {
 			}
 
