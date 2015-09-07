@@ -1,0 +1,4 @@
+D:\Aula\aula.csharp.interop\Interop\Excel\bin\Release\Excel.exe
+D:\Aula\aula.csharp.interop\Interop\Excel\bin\Release\Excel.pdb
+D:\Aula\aula.csharp.interop\Interop\Excel\obj\x86\Release\Excel.exe
+D:\Aula\aula.csharp.interop\Interop\Excel\obj\x86\Release\Excel.pdb
